@@ -13,7 +13,10 @@ const FUNCTION_NAME_PATTERN = '^[a-zA-Z0-9-_]+$';
 
 describe('test/unit/lib/classes/ConfigSchemaHandler/index.test.js', () => {
   describe('#constructor', () => {
-    it('should freeze parts of schema for service', () => {
+    it.only('should freeze parts of schema for service', () => {
+      const os = require('os');
+      console.log('TEMP env var', process.env.TEMP);
+      console.log('OS.TMPDIR before run serverless', os.tmpdir());
       return runServerless({
         fixture: 'config-schema-extensions',
         command: 'info',
